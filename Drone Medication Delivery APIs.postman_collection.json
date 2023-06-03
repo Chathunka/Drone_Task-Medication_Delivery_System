@@ -1,0 +1,294 @@
+{
+	"info": {
+		"_postman_id": "c8c924b1-c050-4242-b548-af5079b9a398",
+		"name": "Drone Medication Delivery APIs",
+		"description": "API endpoints for managing drone delivery operations.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1379142"
+	},
+	"item": [
+		{
+			"name": "Drones",
+			"item": [
+				{
+					"name": "Create Drone",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"serialNumber\": \"DRN001\",\n  \"model\": \"Lightweight\",\n  \"weightLimit\": 500,\n  \"batteryCapacity\": 100\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/drones",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drones"
+							]
+						},
+						"description": "Create a new drone with a name, battery capacity, and weight limit."
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Drones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/drones",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drones"
+							]
+						},
+						"description": "Retrieve a list of all drones."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Drone by Serial Number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/drones/{{droneSerial}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drones",
+								"{{droneSerial}}"
+							]
+						},
+						"description": "Retrieve a specific drone by its ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Drone Battery Level",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/drones/{{droneSerial}}/get-battery-level",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drones",
+								"{{droneSerial}}",
+								"get-battery-level"
+							]
+						},
+						"description": "Retrieve the battery state of a specific drone."
+					},
+					"response": []
+				},
+				{
+					"name": "Set Drone State",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"state\": \"IDLE\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/drones/{{droneSerial}}/state",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drones",
+								"{{droneSerial}}",
+								"state"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Drone",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/drones/{{droneSerial}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drones",
+								"{{droneSerial}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Drones Available For Loading",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/drones/available-for-loading",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drones",
+								"available-for-loading"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Drone Battery Level",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"batteryCapacity\": 80\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/drones/{{droneSerial}}/set-battery-level",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drones",
+								"{{droneSerial}}",
+								"set-battery-level"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "API endpoints for managing drones."
+		},
+		{
+			"name": "Medications",
+			"item": [
+				{
+					"name": "Load Medications to Drone",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"medications\": [\n    {\n      \"name\": \"MedicationA\",\n      \"weight\": 200,\n      \"code\": \"MED001\",\n      \"image\": \"https://example.com/medicationA.jpg\"\n    },\n    {\n      \"name\": \"MedicationB\",\n      \"weight\": 300,\n      \"code\": \"MED002\",\n      \"image\": \"https://example.com/medicationB.jpg\"\n    }\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/medications/{{droneSerial}}/loadMedication",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"medications",
+								"{{droneSerial}}",
+								"loadMedication"
+							]
+						},
+						"description": "Load medications onto a drone by providing the medication name and weight."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Loaded Medications of Drone",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/medications/{{droneSerial}}/getMedication",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"medications",
+								"{{droneSerial}}",
+								"getMedication"
+							]
+						},
+						"description": "Retrieve the list of medications loaded onto a specific drone."
+					},
+					"response": []
+				}
+			],
+			"description": "API endpoints for managing medications."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "droneSerial",
+			"value": "DRN001"
+		}
+	]
+}
