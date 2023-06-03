@@ -169,9 +169,7 @@ Load medications onto a drone by providing the medication name and weight.
       "name": "MedicationA",
       "weight": 200,
       "code": "MED001",
-      "image": "
-
-https://example.com/medicationA.jpg"
+      "image": "https://example.com/medicationA.jpg"
     },
     {
       "name": "MedicationB",
