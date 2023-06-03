@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const os = require('os');
 const DB = require('./utils/databse');
 const droneRoutes = require('./routes/droneRoutes');
+const medicationRoutes = require('./routes/medicationRoutes');
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.use(express.json());
 
 //Routes
 app.use('/drones', droneRoutes);
+app.use('/medications', medicationRoutes);
 
 //Error handler middleware
 app.use((err, req, res, next) => {
