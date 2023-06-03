@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const os = require('os');
 const DB = require('./utils/databse');
+const droneRoutes = require('./routes/droneRoutes');
 
 dotenv.config();
 
@@ -24,6 +25,9 @@ DB.connectDB()
 
 //Parse JSON request bodies
 app.use(express.json());
+
+//Routes
+app.use('/drones', droneRoutes);
 
 //Error handler middleware
 app.use((err, req, res, next) => {

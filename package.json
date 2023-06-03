@@ -22,7 +22,8 @@
   "dependencies": {
     "dotenv": "*",
     "express": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "mongodb-memory-server": "8.12.2"
   },
   "bugs": {
     "url": "https://github.com/Chathunka/Drone_Task-Medication_Delivery_System/issues"
