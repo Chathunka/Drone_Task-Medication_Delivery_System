@@ -1,0 +1,31 @@
+{
+  "name": "drone-medication-delivery-system",
+  "version": "1.0.0",
+  "description": "REST API service for managing a fleet of drones and their medication deliveries",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chathunka/Drone_Task-Medication_Delivery_System.git"
+  },
+  "keywords": [
+    "drone",
+    "management",
+    "REST",
+    "API"
+  ],
+  "author": "Chathunka Tennakoon",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "*",
+    "express": "*",
+    "mongoose": "*"
+  },
+  "bugs": {
+    "url": "https://github.com/Chathunka/Drone_Task-Medication_Delivery_System/issues"
+  },
+  "homepage": "https://github.com/Chathunka/Drone_Task-Medication_Delivery_System#readme"
+}
