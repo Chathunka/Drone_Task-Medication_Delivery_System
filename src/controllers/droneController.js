@@ -120,7 +120,7 @@ exports.updateDroneBatteryLevel = (req, res) => {
 
 // Check available drones for loading
 exports.getAvailableDronesForLoading = (req, res) => {
-    Drone.find({ state: 'IDLE', batteryCapacity: { $gte: 25 } })
+    Drone.find({ $or:[{ state: 'IDLE'}, { state: 'LOADING'}, { state: 'DELIVERED'}], batteryCapacity: { $gte: 25 } })
     .then((drones) => {
         res.status(200).json(drones);
     })

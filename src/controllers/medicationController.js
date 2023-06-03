@@ -15,8 +15,8 @@ exports.loadMedications = async (req, res) => {
         }
 
         // Check if the drone is in a valid state for loading medications
-        if(drone.state !== 'IDLE' && drone.state !== 'LOADING'){
-            return res.status(400).json({ error: 'Drone is not in the IDLE or LOADING state' });
+        if(drone.state !== 'IDLE' && drone.state !== 'LOADING' && drone.state !== 'DELIVERED'){
+            return res.status(400).json({ error: 'Drone is not in the state for loading medications' });
         }
         if(drone.batteryCapacity < 25){
             return res.status(400).json({ error: 'Drone battery level is below 25%' });
@@ -61,7 +61,7 @@ exports.getLoadedMedications = async (req, res) => {
         }
 
         // Check if the drone is in a valid state for retrieving loaded medications
-        const validStates = ['LOADING', 'LOADED', 'DELIVERING', 'DELIVERED'];
+        const validStates = ['LOADING', 'LOADED', 'DELIVERING', 'RETURNING'];
         if(!validStates.includes(drone.state)){
             return res.status(400).json({ error: 'Drone is not in a state where medications are loaded' });
         }

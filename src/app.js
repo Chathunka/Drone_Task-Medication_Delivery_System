@@ -5,7 +5,6 @@ const os = require('os');
 const DB = require('./utils/databse');
 const droneRoutes = require('./routes/droneRoutes');
 const medicationRoutes = require('./routes/medicationRoutes');
-const batteryChecker = require('./utils/batteryCheck');
 
 dotenv.config();
 
@@ -19,8 +18,6 @@ mongoose.set('strictQuery', false);
 DB.connectDB()
 .then(() => {
     console.log('Connected to MongoDB');
-    // Start the battery checker
-    batteryChecker.start();
 })
 .catch((error) => {
     console.log("Failed to connect to MongoDB", error);
@@ -40,18 +37,4 @@ app.use((err, req, res, next) => {
     res.status(500).json({error: 'Internal Server Error'});
 });
 
-//Start the Server
-const port = process.env.PORT || 3000;
-const server = app.listen(port, () => {
-    const networkInterfaces = os.networkInterfaces();
-    const addresses = networkInterfaces['Ethernet'] || networkInterfaces['Wi-Fi'] || [];
-    const ipAddress = addresses.find((address) => address.family === 'IPv4')?.address;
-  
-    if (ipAddress) {
-      console.log(`Server running at http://${ipAddress}:${port}`);
-    } else {
-      console.log(`Server running at http://localhost:${port}`);
-    }
-});
-
-module.exports = server;
+module.exports = app;

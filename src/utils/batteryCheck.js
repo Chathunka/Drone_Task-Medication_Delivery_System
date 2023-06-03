@@ -5,8 +5,8 @@ const BatteryLog = require('../models/modelBatteryLog');
 // Define the batteryChecker object
 const batteryChecker = {
     start: () => {
-        // Schedule the battery check task to run every minute
-        cron.schedule('* * * * *', async () => {
+        // Schedule the battery check task to run every 10 seconds
+        cron.schedule('*/10 * * * * *', async () => {
             try {
                 // Find all drones
                 const drones = await Drone.find();
