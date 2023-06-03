@@ -14,8 +14,7 @@
   "keywords": [
     "drone",
     "management",
-    "REST",
-    "API"
+    "REST API"
   ],
   "author": "Chathunka Tennakoon",
   "license": "ISC",
@@ -23,7 +22,8 @@
     "dotenv": "*",
     "express": "*",
     "mongoose": "*",
-    "mongodb-memory-server": "8.12.2"
+    "mongodb-memory-server": "*",
+    "node-cron": "*"
   },
   "bugs": {
     "url": "https://github.com/Chathunka/Drone_Task-Medication_Delivery_System/issues"

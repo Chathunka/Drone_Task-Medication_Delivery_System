@@ -5,6 +5,7 @@ const os = require('os');
 const DB = require('./utils/databse');
 const droneRoutes = require('./routes/droneRoutes');
 const medicationRoutes = require('./routes/medicationRoutes');
+const batteryChecker = require('./utils/batteryCheck');
 
 dotenv.config();
 
@@ -18,6 +19,8 @@ mongoose.set('strictQuery', false);
 DB.connectDB()
 .then(() => {
     console.log('Connected to MongoDB');
+    // Start the battery checker
+    batteryChecker.start();
 })
 .catch((error) => {
     console.log("Failed to connect to MongoDB", error);
