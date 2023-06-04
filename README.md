@@ -19,4 +19,9 @@ Before running the application, make sure to set up the following environment va
 - `DATABASE_URL`: The URL of the MongoDB database.
 - `PORT`: The port number on which the server should run.
 
+## API Endpoints
+
+- Please refer to the `API_Document.md` for more details.
+- Moreover, the Postman collection named `Drone Medication Delivery APIs.postman_collection.json` is listed in the project.
+
 Thank you for using the Drone Medication Delivery System!
