@@ -26,4 +26,7 @@ router.get('/:serialNumber/get-battery-level', droneController.getDroneBatteryLe
 // Delete a drone
 router.delete('/:serialNumber', droneController.deleteDrone);
 
+// get battery logs for drone by Serial number
+router.get('/:serialNumber/battery-logs', droneController.getBatteryLogs);
+
 module.exports = router;

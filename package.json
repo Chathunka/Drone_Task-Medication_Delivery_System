@@ -1,6 +1,6 @@
 {
   "name": "drone-medication-delivery-system",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "REST API service for managing a fleet of drones and their medication deliveries",
   "main": "server.js",
   "scripts": {

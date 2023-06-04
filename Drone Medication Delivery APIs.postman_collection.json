@@ -109,7 +109,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"state\": \"IDLE\"\n}\n",
+							"raw": "{\n  \"state\": \"LOADING\"\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -263,6 +263,32 @@
 				}
 			],
 			"description": "API endpoints for managing medications."
+		},
+		{
+			"name": "BatteryLogs",
+			"item": [
+				{
+					"name": "Get Battery Logs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/drones/{{droneSerial}}/battery-logs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drones",
+								"{{droneSerial}}",
+								"battery-logs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [

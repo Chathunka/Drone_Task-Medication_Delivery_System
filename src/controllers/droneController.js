@@ -1,4 +1,5 @@
 const Drone = require('../models/modelDrone');
+const BatteryLog = require('../models/modelBatteryLog');
 
 //Create a new Drone
 exports.registerDrone = (req, res) => {
@@ -49,6 +50,7 @@ exports.getAllDrones = (req, res) => {
     });
 };
 
+// Update state of the drone
 exports.updateDroneState = (req, res) => {
     const serialNumber = req.params.serialNumber;
     const newState = req.body.state;
@@ -127,4 +129,27 @@ exports.getAvailableDronesForLoading = (req, res) => {
     .catch((err) => {
         res.status(500).json({ error: 'Failed to retrieve available drones for loading' });
     });
+};
+
+//get batteryLogs for specific drone
+exports.getBatteryLogs = async (req, res) => {
+    try {
+        const { serialNumber } = req.params;
+        // Find the drone with the specified serial number
+        const drone = await Drone.findOne({ serialNumber });
+        if (!drone) {
+            return res.status(404).json({ error: 'Drone not found' });
+        }
+        // Find battery logs for the specified drone
+        const batteryLogs = await BatteryLog.find({ drone: drone._id })
+            .select('timestamp batteryLevel');
+        // Transform the battery logs
+        const transformedLogs = batteryLogs.map(log => ({
+            timestamp: log.timestamp,
+            batteryLevel: log.batteryLevel,
+        }));
+        res.json({batteryLogs: transformedLogs});
+    } catch (error) {
+        res.status(500).json({ error: error });
+    }
 };

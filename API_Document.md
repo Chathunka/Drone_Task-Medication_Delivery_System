@@ -200,6 +200,21 @@ Retrieve the list of medications loaded onto a specific drone.
 
 - Medication objects.
 
+### Get Drone Battery Logs
+
+**Endpoint**: `GET /drones/{droneSerial}/get-battery-level`
+
+Retrieve the battery level of a specific drone.
+
+**Request**:
+
+- Method: `GET`
+- URL: `http://localhost:3000/drones/{droneSerial}/battery-logs`
+
+**Response**:
+
+- Battery logs.
+
 ---
 
 **Note**: Please replace `{droneSerial}` in the API endpoints with the actual serial number of the drone you are working with. The placeholder `{droneSerial}` is used to represent the unique identifier for each drone.
